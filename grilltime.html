@@ -17,7 +17,8 @@ You need to know 3 numbers to do it:
     <li>current tank weight, get a bathroom scale and put the tank on it</li>
 </ul>
 
-    Empty tank weight: <input type="text"  data-ng-model="weightempty"/> lbs (16.6 is typical)
+<div ng-app="" ng-controller="calculateController">
+    Empty tank weight: <input type="text" data-ng-model="weightempty" /> lbs (16.6 is typical)
     <br />
    <!-- Full tank weight: <input type="text" data-ng-model="weightfull" /> lbs
     <br />-->
@@ -28,8 +29,20 @@ You need to know 3 numbers to do it:
 
       Remaining gas: {{ (weightcurrent - weightempty) | number:1}} lbs
      <br />
-      Remaining time: {{ ( ((weightcurrent-weightempty) * 21600) / btus) | number:1 }} hours
-<br />
+      Remaining time: {{ ( ((weightcurrent-weightempty) * btusPerPound) / btus) | number:1 }} hours
+</div>
+
+<script>
+    function calculateController($scope) {
+        $scope.weightempty = "16.6";
+        $scope.weightcurrent = "20";
+        $scope.btus = "12000";
+        $scope.btusPerPound = "21600"; <!-- btus per hour produced by one pound of propane -->
+    }
+</script>
+
+<hr>
+<a href="https://github.com/dougtoppin/grilltime">https://github.com/dougtoppin/grilltime</a>
 
     <script src="Scripts/angular.min.js"></script>
 
