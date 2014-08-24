@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html data-ng-app="">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Propane Tank Remaining Usage Calculator</title>
+</head>
+<body>
+<h2>Propane Tank Remaining Usage Calculator</h2>
+I realized that I was probably replacing the propane tank on our grill with a full tank before we really needed to
+because I was not sure how much longer it would last so I found out how to calculate the remaining time.
+
+This is a very simple way to determine how much remaining time you have in the grill propane tank.
+You need to know 3 numbers to do it:
+<ul>
+    <li>grill BTUs (how much gas it burns per hour), 12000 is a typical value</li>
+    <li>empty tank weight, this should be written next to TW (tare weight) on the collar/top of the propane tank, 16.6 is typical</li>
+    <li>current tank weight, get a bathroom scale and put the tank on it</li>
+</ul>
+
+    Empty tank weight: <input type="text"  data-ng-model="weightempty"/> lbs (16.6 is typical)
+    <br />
+   <!-- Full tank weight: <input type="text" data-ng-model="weightfull" /> lbs
+    <br />-->
+    Grill BTUs: <input type="text" data-ng-model="btus" /> (no comma, 12000 is typical)
+    <br />
+    Current tank weight: <input type="text" data-ng-model="weightcurrent" /> lbs
+    <br />
+
+      Remaining gas: {{ (weightcurrent - weightempty) | number:1}} lbs
+     <br />
+      Remaining time: {{ ( ((weightcurrent-weightempty) * 21600) / btus) | number:1 }} hours
+<br />
+
+    <script src="Scripts/angular.min.js"></script>
+
+</body>
+</html>
