@@ -7,6 +7,8 @@
     <title>Propane Tank Remaining Usage Calculator</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    <!--<link href="custom-styles.css" rel="stylesheet" type="text/css" />-->
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -70,9 +72,10 @@
     <input type="text" data-ng-model="weightcurrent" size="6"/> Current tank weight (lbs)
     <br/>
 
-     <textarea  style="font-weight: bold" rows="1" cols="6" disabled="true">{{ (weightcurrent - weightempty) | number:1}}</textarea> Remaining gas (lbs)
+    <textarea style="font-weight: bold" rows="1" cols="6" disabled="disabled">{{ (weightcurrent - weightempty) | number:1}}</textarea> Remaining gas (lbs)
     <br/>
-    <textarea  style="font-weight: bold" rows="1" cols="6" disabled="true">{{ ( ((weightcurrent-weightempty) * btusPerPound) / btus) | number:1 }}</textarea><strong> Remaining time (hours)</strong>
+    <textarea style="font-weight: bold" rows="1" cols="6" disabled="disabled">{{ ( ((weightcurrent-weightempty) * btusPerPound) / btus) | number:1 }}</textarea><strong> Remaining time (hours)</strong>
+    
 </div>
 
 <script>
