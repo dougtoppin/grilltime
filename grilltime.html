@@ -15,10 +15,17 @@
     <![endif]-->
 
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-38327782-3', 'auto');
         ga('send', 'pageview');
@@ -28,33 +35,44 @@
 </head>
 <body>
 <div class="container">
-<h2>Propane Tank Remaining Usage Calculator</h2>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-I realized that I was probably replacing the propane tank on our grill with a full tank before we really needed to
-because I was not sure how much longer it would last so I found out how to calculate the remaining time.
+    <h2>Propane Tank Remaining Usage Calculator</h2>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
-This is a very simple way to determine how much remaining time you have in the grill propane tank.
-You need to know 3 numbers to do it:
-<ul>
-    <li>grill BTUs (how much gas it burns per hour), 12000 is a typical value</li>
-    <li>empty tank weight, this should be written next to TW (tare weight) on the collar/top of the propane tank, 16.6 is typical</li>
-    <li>current tank weight, get a bathroom scale and put the tank on it</li>
-</ul>
+    <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#demo">
+        Click for description
+    </button>
+
+    <div id="demo" class="collapse" in
+    ">
+    I realized that I was probably replacing the propane tank on our grill with a full tank before we really needed to
+    because I was not sure how much longer it would last so I found out how to calculate the remaining time.
+
+
+    This is a very simple way to determine how much remaining time you have in the grill propane tank.
+    You need to know 3 numbers to do it:
+    <ul>
+        <li>grill BTUs (how much gas it burns per hour), 12000 is a typical value</li>
+        <li>empty tank weight, this should be written next to TW (tare weight) on the collar/top of the propane tank,
+            16.6 is typical
+        </li>
+        <li>current tank weight, get a bathroom scale and put the tank on it</li>
+    </ul>
+</div>
 
 <div ng-app="" ng-controller="calculateController">
-    Empty tank weight: <input type="text" data-ng-model="weightempty" /> lbs (16.6 is typical)
-    <br />
-   <!-- Full tank weight: <input type="text" data-ng-model="weightfull" /> lbs
-    <br />-->
-    Grill BTUs: <input type="text" data-ng-model="btus" /> (no comma, 12000 is typical)
-    <br />
-    Current tank weight: <input type="text" data-ng-model="weightcurrent" /> lbs
-    <br />
+    <input type="text" data-ng-model="weightempty" size="6"/> Empty tank weight (lbs, 16.6 typical)
+    <br/>
+    <!-- Full tank weight: <input type="text" data-ng-model="weightfull" /> lbs
+     <br />-->
+    <input type="text" data-ng-model="btus" size="6"/> Grill BTUs (12000 is typical)
+    <br/>
+    <input type="text" data-ng-model="weightcurrent" size="6"/> Current tank weight (lbs)
+    <br/>
 
-      Remaining gas: {{ (weightcurrent - weightempty) | number:1}} lbs
-     <br />
-      <strong>Remaining time: {{ ( ((weightcurrent-weightempty) * btusPerPound) / btus) | number:1 }} hours</strong>
+     <textarea  style="font-weight: bold" rows="1" cols="6" disabled="true">{{ (weightcurrent - weightempty) | number:1}}</textarea> Remaining gas (lbs)
+    <br/>
+    <textarea  style="font-weight: bold" rows="1" cols="6" disabled="true">{{ ( ((weightcurrent-weightempty) * btusPerPound) / btus) | number:1 }}</textarea><strong> Remaining time (hours)</strong>
 </div>
 
 <script>
@@ -62,16 +80,16 @@ You need to know 3 numbers to do it:
         $scope.weightempty = "16.6";
         $scope.weightcurrent = "20";
         $scope.btus = "12000";
-        $scope.btusPerPound = "21600"; <!-- btus per hour produced by one pound of propane -->
+        $scope.btusPerPound = "21600";
+        <!-- btus per hour produced by one pound of propane -->
     }
 </script>
-
 
 
 <hr>
 <a href="https://github.com/dougtoppin/grilltime">https://github.com/dougtoppin/grilltime</a>
 
-    <script src="Scripts/angular.min.js"></script>
+<script src="Scripts/angular.min.js"></script>
 
 </div>
 
