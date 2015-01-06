@@ -9,4 +9,5 @@ You have to weigh your tank to know how much remains in it so you need your bath
 I did a simple AngularJS html page and put it in an AWS S3 bucket if you want to try it.
 It is not pretty but we are going to run our tank dry before carting it off to Home Depot next time.
 There is no error checking in it so if you bring down the Internet then it's your fault.
+If you want to see this running in an AWS static site take a look at [http://propanecalculator.dougtoppin.name/](http://propanecalculator.dougtoppin.name/)
 
